@@ -12,9 +12,12 @@ public class RegexPractice{
     public static void main(String[] args) {
         System.out.println("Enter first name: ");
         String firstName = sc.next();
+        System.out.println("Enter last name: ");
+        String lastName = sc.next();
 
-        Matcher match = str.matcher(firstName);
-        if (match.matches()){
+        Matcher matchFirstName = str.matcher(firstName);
+        Matcher matchLastName = str.matcher(lastName);
+        if (matchFirstName.matches() && matchLastName.matches()){
             System.out.println("Valid");
         }
         else {
