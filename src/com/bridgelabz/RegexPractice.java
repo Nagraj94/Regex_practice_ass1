@@ -8,8 +8,10 @@ public class RegexPractice{
 
     static Scanner sc = new Scanner(System.in);
     static Pattern name = Pattern.compile("^[A-Z]\\w{3,}$");
-    static Pattern email = Pattern.compile("^[a-z+.]+@(.+)$");
+    static Pattern email = Pattern.compile( "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
     static Pattern phNo = Pattern.compile("^(?:(?:\\+|0{0,2})91(\\s*[\\ -]\\s*)?|[0]?)?[789]\\d{9}|(\\d[ -]?){10}\\d$");
+    static Pattern passWord = Pattern.compile("[a-z]{8,}");
 
     public static void main(String[] args) {
         System.out.println("Enter first name: ");
@@ -20,6 +22,8 @@ public class RegexPractice{
         String emailValid = sc.next();
         System.out.println("Enter phone number");
         String phNoValid = sc.next();
+        System.out.println("Enter password: ");
+        String passValid = sc.next();
 
         Matcher matchFirstName = name.matcher(firstName);
         Matcher matchLastName = name.matcher(lastName);
@@ -30,10 +34,9 @@ public class RegexPractice{
             System.out.println("first letter should start with capital");
         }
         Matcher matchEmail = email.matcher(emailValid);
-        if (matchEmail.matches()){
+        if (matchEmail.matches()) {
             System.out.println("email is valid");
-        }
-        else {
+        } else {
             System.out.println("enter valid email eg.eg.abc.xyz@bl.co.in");
         }
         Matcher matchNum = phNo.matcher(phNoValid);
@@ -41,7 +44,14 @@ public class RegexPractice{
             System.out.println("phone number is valid");
         }
         else {
-            System.out.println("enter phone number valid number");
+            System.out.println("enter valid phone number");
+        }
+        Matcher matchPassword = passWord.matcher(passValid);
+        if (matchPassword.matches()){
+            System.out.println("password is valid ");
+        }
+        else {
+            System.out.println("password is invalid");
         }
     }
 }
