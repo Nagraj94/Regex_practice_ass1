@@ -11,7 +11,7 @@ public class RegexPractice{
     static Pattern email = Pattern.compile( "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
             + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");
     static Pattern phNo = Pattern.compile("^(?:(?:\\+|0{0,2})91(\\s*[\\ -]\\s*)?|[0]?)?[789]\\d{9}|(\\d[ -]?){10}\\d$");
-    static Pattern passWord = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])+(?=.*[0-9]).{8,20}$");
+    static Pattern passWord = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])+(?=.*[@#$%^&+=])+(?=.*[0-9]).{8,20}$");
 
     public static void main(String[] args) {
         System.out.println("Enter first name: ");
